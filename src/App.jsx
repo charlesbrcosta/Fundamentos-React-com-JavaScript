@@ -1,7 +1,10 @@
-import { Post } from './Post';
+import { Post } from './Post'
+import './style.css'
+
 export function App() {
   return (
-    <>
+    <div>
+
       <Post
         author="Bruno"
         content="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ut tenetur nam molestias sit nobis assumenda odio autem dolorum quia, rerum velit expedita sed ipsum earum, consectetur neque corporis at! Laudantium."
@@ -11,7 +14,7 @@ export function App() {
         author="B1tZer0"
         content="Fortinite e CSGo"
       />
-    </>
+    </div>
   )
 }
 
