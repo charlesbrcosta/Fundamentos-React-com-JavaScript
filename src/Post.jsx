@@ -4,5 +4,5 @@ export function Post(props) {
             <strong>{props.author}</strong>
             <p>{props.content}</p>
         </div>
-    )
+    );
 }
