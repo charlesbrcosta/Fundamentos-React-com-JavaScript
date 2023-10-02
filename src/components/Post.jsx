@@ -14,24 +14,13 @@ export function Post() {
             <span>Web Developer</span>
           </div>
         </div>
-        <time title="01 de Outubro às 22:16" dateTime="2023-10-01 22:17:20">
-          {" "}
-          Publicado há 1h
-        </time>
+        <time title="01 de Outubro às 22:16" dateTime="2023-10-01 22:17:20">Publicado há 1h</time>
       </header>
       <div className={styles.content}>
         <p>Fala galeraa 👋</p>
-        <p>
-          Acabei de subir mais um projeto no meu portifa. É um projeto que fiz
-          no NLW Return,
-        </p>{" "}
-        evento <p>da Rocketseat. O nome do projeto é DoctorCare 🚀</p>
-        <p>
-          <a href="#">👉 jane.design/doctorcare</a>
-        </p>
-        <p>
-          <a href="#">#novoprojeto #nlw #rocketseat</a>
-        </p>
+        <p>Acabei de subir mais um projeto no meu portifa. É um projeto que fizno NLW Return, evento da Rocketseat. O nome do projeto é DoctorCare 🚀</p>
+        <p><a href="#">👉 jane.design/doctorcare</a></p>
+        <p><a href="#">#novoprojeto #nlw #rocketseat</a></p>
       </div>
     </article>
   )
