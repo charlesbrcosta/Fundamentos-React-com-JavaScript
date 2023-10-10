@@ -4,7 +4,7 @@ import { ThumbsUp } from 'phosphor-react'
 
 export function Comment() {
   return (
-    <div className={styles.Comment}>
+    <div className={styles.comment}>
       <img src="https://www.github.com/charlesbrcosta.png" alt="" />
       <div className={styles.commentBox}>
         <div className={styles.commentContent}>
@@ -14,7 +14,7 @@ export function Comment() {
               <time title="09 de outubro às 20:47" dateTime="2023-10-09 20:48:00">Há cerca de 1 hora</time>
             </div>
             <button title="Deletar comentário">
-              <Trash size={20} />
+              <Trash size={24} />
             </button>
           </header>
           <p>Muito bom Devon, parabéns!! 👏👏</p>
