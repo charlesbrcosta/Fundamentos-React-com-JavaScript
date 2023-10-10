@@ -96,6 +96,7 @@
   max-height: 0;
 }
 
+/* focus-within, caso acha algum foco no textarea, input dentro do commentForm, vai aplicar a estilização  */
 .commentForm:focus-within footer {
   visibility: visible;
   max-height: none;
@@ -110,9 +111,13 @@
   color: var(--white);
   font-weight: bold;
   cursor: pointer;
-  /*transition: 0.1s;*/
+  transition: background-color 0.1s;
 }
 
 .commentForm button[type=submit]:hover {
   background: var(--green-300);
+}
+
+.commentList {
+  margin-top: 2rem;
 }
