@@ -27,7 +27,7 @@ const posts = [
       },
       { type: "link", content: "👉 bruno.web-developer/doctorcare" },
     ],
-    publishedAt: new Date("2023-10-12 13:31:00"),
+    publishedAt: new Date("2023-10-12 07:30:00"),
   },
   {
     id: 2,
@@ -45,7 +45,7 @@ const posts = [
       },
       { type: "link", content: "diego3g.back-end/doctorcare" },
     ],
-    publishedAt: new Date("2023-10-11 07:23:00"),
+    publishedAt: new Date("2023-10-05 12:15:00"),
   },
   {
     id: 3,
@@ -63,7 +63,7 @@ const posts = [
       },
       { type: "link", content: "maykbrito.front-end/doctorcare" },
     ],
-    publishedAt: new Date("2023-10-10 11:27:00"),
+    publishedAt: new Date("2023-10-01 13:01:00"),
   },
 ]
 

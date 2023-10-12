@@ -1,15 +1,19 @@
 import { Comment } from "./Comment.jsx"
 import { Avatar } from "./Avatar"
-import { format, formatDistanceToNow } from 'date-fns'
-import ptBr from 'date-fns/locale/pt-BR'
+import { format, formatDistanceToNow } from "date-fns"
+import ptBr from "date-fns/locale/pt-BR"
 
 import styles from "./Post.module.css"
 
 //desestruturacao da propriedade para não repetir props toda vez que retornar um objeto
 export function Post({ author, publishedAt, content }) {
-  const publishedDateFormatted = format(publishedAt, "dd 'de' LLLL 'às' HH'h':mm'm'", {
-    locale: ptBr,
-  })
+  const publishedDateFormatted = format(
+    publishedAt,
+    "d 'de' LLLL 'às' HH:mm'h'",
+    {
+      locale: ptBr,
+    }
+  )
 
   const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
     locale: ptBr,
@@ -26,17 +30,24 @@ export function Post({ author, publishedAt, content }) {
             <span>{author.role}</span>
           </div>
         </div>
-        <time title={publishedDateFormatted} dateTime={publishedAt.toISOString()}>
+        <time
+          title={publishedDateFormatted}
+          dateTime={publishedAt.toISOString()}
+        >
           {publishedDateRelativeToNow}
         </time>
-      </header>
 
+      </header>
       <div className={styles.content}>
-        {content.map(line => {
-          if(line.type === 'paragraph'){
-            return <p>{line.content}</p>;
-          } else if (line.type === 'link') {
-            return <p><a href="#">{line.content}</a></p>;
+        {content.map((line) => {
+          if (line.type === "paragraph") {
+            return <p>{line.content}</p>
+          } else if (line.type === "link") {
+            return (
+              <p>
+                <a href="#">{line.content}</a>
+              </p>
+            )
           }
         })}
       </div>
