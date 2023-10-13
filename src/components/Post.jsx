@@ -41,8 +41,8 @@ export function Post({ author, publishedAt, content }) {
         <time title={publishedDateFormatted} dateTime={publishedAt.toISOString()}>
           {publishedDateRelativeToNow}
         </time>
-
       </header>
+
       <div className={styles.content}>
         {content.map((line) => {
           if (line.type === "paragraph") {
