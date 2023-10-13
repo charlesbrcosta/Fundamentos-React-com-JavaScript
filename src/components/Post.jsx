@@ -2,15 +2,18 @@ import { Comment } from "./Comment.jsx"
 import { Avatar } from "./Avatar"
 import { format, formatDistanceToNow } from "date-fns"
 import ptBr from "date-fns/locale/pt-BR"
+import { useState } from "react"
 
 import styles from "./Post.module.css"
 
 //desestruturacao da propriedade para não repetir props toda vez que retornar um objeto
 export function Post({ author, publishedAt, content }) {
-  const publishedDateFormatted = format(
-    publishedAt,
-    "d 'de' LLLL 'às' HH:mm'h'",
-    {
+  const [ comments, setComments ] = useState([
+    1,
+    2,
+  ])
+
+  const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
       locale: ptBr,
     }
   )
@@ -19,6 +22,11 @@ export function Post({ author, publishedAt, content }) {
     locale: ptBr,
     addSuffix: true,
   })
+
+  function handleCreateNewComment(){
+    event.preventDefault();   
+    setComments([...comments, comments.length + 1]);
+  }
 
   return (
     <article className={styles.post}>
@@ -30,10 +38,7 @@ export function Post({ author, publishedAt, content }) {
             <span>{author.role}</span>
           </div>
         </div>
-        <time
-          title={publishedDateFormatted}
-          dateTime={publishedAt.toISOString()}
-        >
+        <time title={publishedDateFormatted} dateTime={publishedAt.toISOString()}>
           {publishedDateRelativeToNow}
         </time>
 
@@ -43,25 +48,23 @@ export function Post({ author, publishedAt, content }) {
           if (line.type === "paragraph") {
             return <p>{line.content}</p>
           } else if (line.type === "link") {
-            return (
-              <p>
-                <a href="#">{line.content}</a>
-              </p>
-            )
+            return <p><a href="#">{line.content}</a></p>
           }
         })}
       </div>
-      <form className={styles.commentForm}>
+
+      <form onSubmit={handleCreateNewComment} className={styles.commentForm}>
         <strong>Deixe seu feedback</strong>
         <textarea placeholder="Deixe seu comentário" />
         <footer>
           <button type="submit">Publicar</button>
         </footer>
       </form>
+
       <div className={styles.commentList}>
-        <Comment />
-        <Comment />
-        <Comment />
+        {comments.map(comment => {
+          return <Comment />
+        })}        
       </div>
     </article>
   )
