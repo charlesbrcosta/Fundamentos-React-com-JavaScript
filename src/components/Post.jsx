@@ -8,10 +8,12 @@ import styles from "./Post.module.css"
 
 //desestruturacao da propriedade para não repetir props toda vez que retornar um objeto
 export function Post({ author, publishedAt, content }) {
+
+  //Adiciona e controla todos os comentários existentes no componente POST
   const [ comments, setComments ] = useState([
     'Poste muito bancana, Hein?!',
   ])
-
+  //Controla o evento do novo comentário e remove o último digitado no textarea
   const [ newCommentText, setCommentText ] = useState('')
 
   const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
@@ -33,6 +35,10 @@ export function Post({ author, publishedAt, content }) {
 
   function handleNewCommentChange(){
     setCommentText(event.target.value);
+  }
+
+  function deleteComment(comment){
+    console.log(`deletar o comentario ${ comment }`)
   }
 
   return (
@@ -80,7 +86,8 @@ export function Post({ author, publishedAt, content }) {
           return (
             <Comment 
               key={ comment }
-              content = { comment }
+              content={ comment }
+              onDeleteComment={ deleteComment }
             />
           )
         })}    
