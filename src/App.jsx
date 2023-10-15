@@ -45,7 +45,7 @@ const posts = [
       },
       { type: "link", content: "diego3g.back-end/doctorcare" },
     ],
-    publishedAt: new Date("2023-10-11 07:23:00"),
+    publishedAt: new Date("2023-10-07 07:23:00"),
   },
   {
     id: 3,
@@ -63,7 +63,7 @@ const posts = [
       },
       { type: "link", content: "maykbrito.front-end/doctorcare" },
     ],
-    publishedAt: new Date("2023-10-10 11:27:00"),
+    publishedAt: new Date("2023-10-05 11:27:00"),
   },
 ]
 
@@ -71,10 +71,8 @@ export function App() {
   return (
     <div>
       <Header />
-
       <div className={styles.wrapper}>
         <Sidebar />
-
         <main>
           {posts.map(post => {
             return (
