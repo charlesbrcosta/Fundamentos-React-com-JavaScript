@@ -9,11 +9,11 @@ import styles from "./Post.module.css"
 //desestruturacao da propriedade para não repetir props toda vez que retornar um objeto
 export function Post({ author, publishedAt, content }) {
 
-  //Adiciona e controla todos os comentários existentes no componente POST
+  //controla todos os comentários existentes no componente POST
   const [ comments, setComments ] = useState([
     'Poste muito bancana, Hein?!',
   ])
-  //Controla o evento do novo comentário e remove o último digitado no textarea
+  //Monitora tudo que é digitado no campo textarea
   const [ newCommentText, setCommentText ] = useState('')
 
   const publishedDateFormatted = format(publishedAt, "d 'de' LLLL 'às' HH:mm'h'", {
@@ -34,7 +34,12 @@ export function Post({ author, publishedAt, content }) {
   }
 
   function handleNewCommentChange(){
-    setCommentText(event.target.value);
+    event.target.setCustomValidity('');
+    setCommentText(event.target.value);    
+  }
+
+  function handleNewCommentInvalid(){
+    event.target.setCustomValidity('Esse campo é obrigatório');
   }
 
   function deleteComment(commentToDelete){
@@ -43,6 +48,8 @@ export function Post({ author, publishedAt, content }) {
     })
     setComments(commentsWithOutDeletedOne)
   }
+
+  const isNewCommentEmpty = newCommentText.length === 0
 
   return (
     <article className={styles.post}>
@@ -77,10 +84,14 @@ export function Post({ author, publishedAt, content }) {
           placeholder="Deixe seu comentário" 
           value={ newCommentText }
           onChange={ handleNewCommentChange }
+          onInvalid={ handleNewCommentInvalid }
+          required
         />
 
         <footer>
-          <button type="submit">Publicar</button>
+          <button type="submit" disabled={ isNewCommentEmpty }>
+            Publicar
+          </button>
         </footer>
       </form>
 

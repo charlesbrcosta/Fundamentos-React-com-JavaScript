@@ -9,7 +9,6 @@ export function Comment({ content, onDeleteComment }) {
   function handleDeleteComment(){
     onDeleteComment(content);
   }
-  
 
   return (
     <div className={ styles.comment }>
